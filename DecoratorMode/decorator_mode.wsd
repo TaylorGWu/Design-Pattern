@@ -1,0 +1,57 @@
+@startuml
+Object Beverage {
+    + abstract double cost();
+    + string description();
+}
+
+Object DarkRoast {
+    + double cost();
+    + string description();
+}
+
+Object Expresso {
+    + double cost();
+    + string description();
+}
+
+Object HouseBlend {
+    + double cost();
+    + string description();
+}
+
+Object CondimentDecorator {
+    + string description();
+}
+
+Beverage <|--  DarkRoast
+Beverage <|-- Expresso
+Beverage <|-- HouseBlend
+
+Beverage <|-- CondimentDecorator
+
+Object Mocha {
+    - Beverage beverage;
+    + double cost();
+    + string description();
+}
+
+Object Soy {
+    - Beverage beverage;
+    + double cost();
+    + string description();
+}
+
+Object Whip {
+    - Beverage beverage;
+    + double cost();
+    + string description();
+}
+
+CondimentDecorator <|-- Mocha 
+CondimentDecorator <|-- Soy
+CondimentDecorator <|-- Whip 
+
+Mocha "1" *-- "1" Beverage
+Soy "1" *-- "1" Beverage
+Whip "1" *-- "1" Beverage
+@enduml
